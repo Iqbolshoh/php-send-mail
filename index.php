@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +15,7 @@
 <body>
 
     <form id="emailForm">
-        <input type="hidden" name="csrf_token"
-            value="<?php echo $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); ?>">
+        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
         <button type="submit">Send Email</button>
     </form>
 
