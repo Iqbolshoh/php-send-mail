@@ -30,31 +30,11 @@ This project allows users to send emails via **SMTP server** using **PHP** and t
 3️⃣ **PHP backend** validates data, checks CSRF token, and sends an email using PHPMailer.  
 4️⃣ **SweetAlert2** displays a success/failure notification.  
 
-## 📧 Email Sending Process
-
-### **Frontend & Backend**
-- **Bootstrap-powered** responsive email form.
-- **SweetAlert2** for user-friendly notifications.
-- **AJAX (`fetch API`)** sends data to `send-mail.php`.
-- **CSRF protection** to prevent attacks.
-- **PHPMailer** handles the actual email sending via SMTP.
-- **Form validation** ensures correct data input.
-
-## 🛠️ Technologies Used
-
-<div style="display: flex; flex-wrap: wrap; gap: 5px;">
-    <img src="https://img.shields.io/badge/HTML-%23F06529.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML">
-    <img src="https://img.shields.io/badge/Bootstrap-%237952B3.svg?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
-    <img src="https://img.shields.io/badge/JavaScript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
-    <img src="https://img.shields.io/badge/PHP-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
-    <img src="https://img.shields.io/badge/PHPMailer-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white" alt="PHPMailer">
-</div>
-
 ## 🚀 Setup & Installation
 
 1️⃣ Clone the repository:
 ```bash
-git clone https://github.com/Iqbolshoh/php-send-mail/.git
+git clone https://github.com/Iqbolshoh/php-send-mail.git
 ```
 
 2️⃣ Navigate to the project directory:
