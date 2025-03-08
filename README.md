@@ -9,7 +9,13 @@ This project allows users to send emails via **SMTP server** using **PHP** and t
 ✔ **CSRF protection for security** 🔐  
 ✔ **SweetAlert2 for user notifications** 💡  
 ✔ **Responsive UI with Bootstrap** 🎨  
-✔ **AJAX support for seamless requests** ⚡  
+✔ **AJAX support for seamless requests** ⚡
+
+## 🎯 Workflow Overview
+1️⃣ **User** fills out the email form and submits.  
+2️⃣ **JavaScript fetch API** sends data to `send-mail.php`.  
+3️⃣ **PHP backend** validates data, checks CSRF token, and sends an email using PHPMailer.  
+4️⃣ **SweetAlert2** displays a success/failure notification.  
 
 ## 📂 Project Structure
 ```
@@ -21,12 +27,6 @@ This project allows users to send emails via **SMTP server** using **PHP** and t
 │── composer.json             # Composer configuration
 │── README.md                 # Documentation
 ```
-
-## 🎯 Workflow Overview
-1️⃣ **User** fills out the email form and submits.  
-2️⃣ **JavaScript fetch API** sends data to `send-mail.php`.  
-3️⃣ **PHP backend** validates data, checks CSRF token, and sends an email using PHPMailer.  
-4️⃣ **SweetAlert2** displays a success/failure notification.  
 
 ## 🚀 Setup & Installation
 
