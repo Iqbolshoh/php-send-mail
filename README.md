@@ -2,7 +2,7 @@
 
 This project allows users to send emails via **SMTP server** using **PHP** and the **PHPMailer** library. It features a clean **Bootstrap** UI and uses **SweetAlert2** for better user experience.
 
-![Banner](banner.png)
+![Banner](src/images/banner.png)
 
 ## 📌 Features
 ✔ **Send emails via SMTP** 📧  
