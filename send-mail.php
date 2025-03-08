@@ -5,15 +5,19 @@ require './vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// SMTP server configuration
-define('SMTP_HOST', 'mail.iqbolshoh.uz'); // Your mail server address
-define('SMTP_USER', 'info@iqbolshoh.uz'); // Your email address (SMTP username)
-define('SMTP_PASS', 'YOUR_PASSWORD'); // Your email password (use a secure method to store this)
-define('SMTP_PORT', 465); // SMTP port (465 for SSL, 587 for TLS)
+// ===============================
+// SMTP Server Configuration
+// ===============================
+define('SMTP_HOST', 'mail.iqbolshoh.uz'); // The mail server address (e.g., mail.example.com)
+define('SMTP_USER', 'info@iqbolshoh.uz'); // SMTP username (your email address)
+define('SMTP_PASS', 'your_secure_password'); // SMTP password (use a secure method to store this)
+define('SMTP_PORT', 465); // SMTP port: 465 for SSL, 587 for TLS
 
-// Email sender details
-define('MAIL_FROM', 'info@iqbolshoh.uz'); // Sender email address
-define('MAIL_NAME', 'Iqbolshoh Ilhomjonov'); // Sender name (your name or company name)
+// ===============================
+// Email Sender Details
+// ===============================
+define('MAIL_FROM', 'info@iqbolshoh.uz'); // The email address that will appear as the sender
+define('MAIL_NAME', 'Iqbolshoh Ilhomjonov'); // The sender's name (your name or company name)
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     header('Content-Type: application/json');
