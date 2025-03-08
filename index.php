@@ -24,13 +24,18 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                         <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
 
                         <div class="mb-3">
+                            <label class="form-label">Mail to</label>
+                            <input type="email" name="mail_to" class="form-control" required maxlength="">
+                        </div>
+
+                        <div class="mb-3">
                             <label class="form-label">Subject</label>
-                            <input type="text" name="subject" class="form-control" required>
+                            <input type="text" name="subject" class="form-control" required maxlength="">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Message</label>
-                            <textarea name="message" class="form-control" rows="4" required></textarea>
+                            <textarea name="message" class="form-control" rows="4" required maxlength=""></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100">Send Email</button>
