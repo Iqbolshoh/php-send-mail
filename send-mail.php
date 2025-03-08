@@ -10,7 +10,7 @@ use PHPMailer\PHPMailer\Exception;
 // ===============================
 define('SMTP_HOST', 'mail.iqbolshoh.uz'); // The mail server address (e.g., mail.example.com)
 define('SMTP_USER', 'info@iqbolshoh.uz'); // SMTP username (your email address)
-define('SMTP_PASS', 'your_secure_password'); // SMTP password (use a secure method to store this)
+define('SMTP_PASS', 'YOUR_SECURE_PASSWORD'); // SMTP password (use a secure method to store this)
 define('SMTP_PORT', 465); // SMTP port: 465 for SSL, 587 for TLS
 
 // ===============================
@@ -34,14 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
-    $subject = htmlspecialchars(trim($_POST['subject']), ENT_QUOTES, 'UTF-8');
-    $message = nl2br(htmlspecialchars(trim($_POST['message']), ENT_QUOTES, 'UTF-8'));
-    $mail_to = filter_var($_POST['mail_to'], FILTER_VALIDATE_EMAIL);
-
-    if (!$mail_to) {
-        echo json_encode(['status' => 'error', 'title' => 'Invalid Email', 'message' => 'Please enter a valid email address!']);
+    // Validating the recipient email address format to ensure it's a valid email.
+    if (!filter_var($_POST['mail_to'], FILTER_VALIDATE_EMAIL)) {
+        echo json_encode(['status' => 'error', 'title' => 'Email', 'message' => 'Invalid email format!']);
         exit;
     }
+
+    $mail_to = trim($_POST['mail_to']);
+    $subject = htmlspecialchars(trim($_POST['subject']), ENT_QUOTES, 'UTF-8');
+    $message = nl2br(htmlspecialchars(trim($_POST['message']), ENT_QUOTES, 'UTF-8'));
 
     $mail = new PHPMailer(true);
 
