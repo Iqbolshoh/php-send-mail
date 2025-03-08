@@ -1,12 +1,18 @@
 <?php
 session_start();
 require './vendor/autoload.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Load environment variables
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+// Define constants
+define('SMTP_HOST', 'mail.YOUR_DOMAIN.com');
+define('SMTP_USER', 'YOUR_EMAIL');
+define('SMTP_PASS', 'YOUR_PASSWORD');
+define('SMTP_PORT', 465);
+define('MAIL_FROM', 'YOUR_EMAIL');
+define('MAIL_NAME', 'YOUR_NAME');
+define('MAIL_TO', 'RECIPIENT_EMAIL');
 
 // Check CSRF token
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -26,21 +32,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         // SMTP Settings
         $mail->isSMTP();
-        $mail->Host = $_ENV['SMTP_HOST'];
+        $mail->Host = SMTP_HOST;
         $mail->SMTPAuth = true;
-        $mail->Username = $_ENV['SMTP_USER'];
-        $mail->Password = $_ENV['SMTP_PASS'];
+        $mail->Username = SMTP_USER;
+        $mail->Password = SMTP_PASS;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port = 465;
+        $mail->Port = SMTP_PORT;
 
         // Sender & Recipient
-        $mail->setFrom($_ENV['MAIL_FROM'], $_ENV['MAIL_NAME']);
-        $mail->addAddress($_ENV['MAIL_TO'], 'Recipient');
-        $mail->addReplyTo($_ENV['MAIL_FROM'], $_ENV['MAIL_NAME']);
+        $mail->setFrom(MAIL_FROM, MAIL_NAME);
+        $mail->addAddress(MAIL_TO, 'Recipient');
+        $mail->addReplyTo(MAIL_FROM, MAIL_NAME);
 
         // Email Content
         $mail->isHTML(true);
-        $mail->Subject = $subject;
+        $mail->Subject = htmlspecialchars($subject);
         $mail->Body = nl2br(htmlspecialchars($message));
         $mail->AltBody = strip_tags($message);
 
