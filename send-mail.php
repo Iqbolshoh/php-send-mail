@@ -35,12 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Validating the recipient email address format to ensure it's a valid email.
-    if (!filter_var($_POST['mail_to'], FILTER_VALIDATE_EMAIL)) {
+    $mail_to = trim($_POST['mail_to']);
+    if (!filter_var($mail_to, FILTER_VALIDATE_EMAIL)) {
         echo json_encode(['status' => 'error', 'title' => 'Email', 'message' => 'Invalid email format!']);
         exit;
     }
 
-    $mail_to = trim($_POST['mail_to']);
     $subject = htmlspecialchars(trim($_POST['subject']), ENT_QUOTES, 'UTF-8');
     $message = nl2br(htmlspecialchars(trim($_POST['message']), ENT_QUOTES, 'UTF-8'));
 
