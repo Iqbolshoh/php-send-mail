@@ -44,22 +44,22 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         document.getElementById("emailForm").addEventListener("submit", function (event) {
             event.preventDefault();
 
-            fetch("send-mail.php", {
-                method: "POST",
+            fetch('send-mail.php', {
+                method: 'POST',
                 body: new FormData(this),
-                headers: { "X-Requested-With": "XMLHttpRequest" }
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
             })
                 .then(response => response.json())
                 .then(data => {
                     Swal.fire({
-                        icon: data.status === "success" ? "success" : "error",
+                        icon: data.status === 'success' ? 'success' : 'error',
                         title: data.title,
                         text: data.message,
-                        position: "top",
+                        position: 'top',
                         backdrop: false
                     });
                 })
-                .catch(error => console.error("Error:", error));
+                .catch(error => console.error('Error:', error));
         });
     </script>
 
