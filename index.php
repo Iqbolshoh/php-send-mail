@@ -8,7 +8,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Send Email</title>
+    <title>Send Mail</title>
     <link rel="icon" href="https://iqbolshoh.uz/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
@@ -33,12 +33,12 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
                         <div class="mb-3">
                             <label class="form-label">Subject</label>
-                            <input type="text" name="subject" class="form-control" required maxlength="150">
+                            <input type="text" name="subject" class="form-control" required maxlength="100">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Message</label>
-                            <textarea name="message" class="form-control" rows="4" required maxlength="500"></textarea>
+                            <textarea name="message" class="form-control" rows="5" required maxlength="1000"></textarea>
                         </div>
 
                         <div class="mb-3">
@@ -79,6 +79,10 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                         text: data.message,
                         backdrop: false
                     });
+
+                    if (data.status === 'success') {
+                        document.getElementById("emailForm").reset();
+                    }
                 })
                 .catch(error => {
                     Swal.fire({
