@@ -54,6 +54,16 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         document.getElementById("emailForm").addEventListener("submit", function (event) {
             event.preventDefault();
 
+            Swal.fire({
+                title: 'Please wait...',
+                text: 'Your message is being sent',
+                allowOutsideClick: false,
+                backdrop: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
             fetch('send-mail.php', {
                 method: 'POST',
                 body: new FormData(this),
@@ -65,11 +75,18 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                         icon: data.status === 'success' ? 'success' : 'error',
                         title: data.title,
                         text: data.message,
-                        position: 'top',
                         backdrop: false
                     });
                 })
-                .catch(error => console.error('Error:', error));
+                .catch(error => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'There was a problem sending the message. Please try again!',
+                        backdrop: false
+                    });
+                    console.error('Error:', error);
+                });
         });
     </script>
 
