@@ -11,8 +11,6 @@ This project allows users to send emails via **SMTP server** using **PHP** and t
 ✔ **Responsive UI with Bootstrap** 🎨  
 ✔ **AJAX support for seamless requests** ⚡  
 
----
-
 ## 📂 Project Structure
 ```
 /project-root
