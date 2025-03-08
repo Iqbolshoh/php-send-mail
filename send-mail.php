@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Sender & Recipient
         $mail->setFrom('info@iqbolshoh.uz', 'Iqbolshoh');
-        $mail->addAddress('iilhomjonov@gmail.com', 'Recipient');
+        $mail->addAddress('iilhomjonov777@gmail.com', 'Recipient');
 
         // Reply-To
         $mail->addReplyTo('info@iqbolshoh.uz', 'Iqbolshoh');
