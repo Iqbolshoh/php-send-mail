@@ -56,6 +56,8 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                         icon: data.status === "success" ? "success" : "error",
                         title: data.title,
                         text: data.message
+                        position: "top", 
+                        backdrop: false
                     });
                 })
                 .catch(error => console.error("Error:", error));
