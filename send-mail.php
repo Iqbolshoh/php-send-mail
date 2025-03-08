@@ -5,13 +5,15 @@ require './vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Define constants
-define('SMTP_HOST', 'mail.YOUR_DOMAIN.com');
-define('SMTP_USER', 'YOUR_EMAIL');
-define('SMTP_PASS', 'YOUR_PASSWORD');
-define('SMTP_PORT', 465);
-define('MAIL_FROM', 'YOUR_EMAIL');
-define('MAIL_NAME', 'YOUR_NAME');
+// SMTP server configuration
+define('SMTP_HOST', 'mail.iqbolshoh.uz'); // Your mail server address
+define('SMTP_USER', 'info@iqbolshoh.uz'); // Your email address (SMTP username)
+define('SMTP_PASS', 'YOUR_PASSWORD'); // Your email password (use a secure method to store this)
+define('SMTP_PORT', 465); // SMTP port (465 for SSL, 587 for TLS)
+
+// Email sender details
+define('MAIL_FROM', 'info@iqbolshoh.uz'); // Sender email address
+define('MAIL_NAME', 'Iqbolshoh Ilhomjonov'); // Sender name (your name or company name)
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     header('Content-Type: application/json');
