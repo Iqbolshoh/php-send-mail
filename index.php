@@ -54,7 +54,9 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                     Swal.fire({
                         icon: data.status === "success" ? "success" : "error",
                         title: data.title,
-                        text: data.message
+                        text: data.message,
+                        position: "top",
+                        backdrop: false
                     });
                 })
                 .catch(error => console.error("Error:", error));
