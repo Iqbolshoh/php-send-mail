@@ -15,7 +15,6 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 </head>
 
 <body class="bg-light d-flex align-items-center justify-content-center vh-100">
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -56,8 +55,6 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                         icon: data.status === "success" ? "success" : "error",
                         title: data.title,
                         text: data.message
-                        position: "top", 
-                        backdrop: false
                     });
                 })
                 .catch(error => console.error("Error:", error));
