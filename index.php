@@ -19,6 +19,11 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card shadow p-4">
+                    <div class="text-center">
+                        <a href="https://iqbolshoh.uz" target="_blank">
+                            <img src="./src/images/logo.svg" alt="Logo" style="width: 120px;">
+                        </a>
+                    </div>
                     <h3 class="text-center">📧 Send Email</h3>
                     <form id="emailForm">
                         <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
