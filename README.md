@@ -1,7 +1,6 @@
-# 📧 PHP Mailer - Email Sending System
+# 📧 PHP SEND MAIL
 
 This project allows users to send emails via **SMTP server** using **PHP** and the **PHPMailer** library. It features a clean **Bootstrap** UI and uses **SweetAlert2** for better user experience.
-
 ![Banner](src/images/banner.png)
 
 ## 📌 Features
